@@ -8,7 +8,7 @@ public class Taller02UnitTesting {
 
         sismos=crearArreglo();
         imprimirSismos(sismos);
-        sismoMasFuerte(sismos);
+        //sismoMasFuerte(sismos);
         //menu();
  }
 
@@ -66,7 +66,7 @@ public class Taller02UnitTesting {
     private void masDe55() {
     }
 
-     static void sismoMasFuerte(float [][]sismos) {
+     float sismoMasFuerte(float [][]sismos) {
         float sisMayor=0;
         int dia=0; int hora=0;
         for (int i=0;i<sismos.length;i++){
@@ -79,7 +79,7 @@ public class Taller02UnitTesting {
             }
         }
         System.out.println("El sismo mas fuerte fue a las 0"+hora+" horas el dia "+(dia+1)+" con una intesidad de "+sismos[dia][hora]+" richter");
-
+        return sisMayor;
     }
 
 
