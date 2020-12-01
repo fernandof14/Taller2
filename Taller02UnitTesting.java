@@ -4,22 +4,29 @@ import java.util.Scanner;
 public class Taller02UnitTesting {
 
     public static void main (String[] args){
-        float [][]sismos= new float[3][8];
-        crearArreglo(sismos);
+        float [][]sismos;
+
+        sismos=crearArreglo();
         imprimirSismos(sismos);
         sismoMasFuerte(sismos);
         //menu();
  }
 
 
-    static void crearArreglo(float [][]sismos){
+    static float [][] crearArreglo(){
+        Scanner entrada=new Scanner(System.in);
+        System.out.println("Ingresar dias a analizar: ");
+
+        int dias=entrada.nextInt();
+
+        float [][]sismos= new float[dias][24];
         for (int i=0;i<sismos.length;i++){
             for (int j=0;j<sismos[i].length;j++){
                 sismos[i][j]= (float)Math.random()*10;
                 if(sismos[i][j]>=9.5){
                     sismos[i][j]-=0.5;}
             }
-        }
+        }return sismos;
     }
     static void imprimirSismos(float [][]sismos){
         DecimalFormat df = new DecimalFormat("#.00");
@@ -61,16 +68,17 @@ public class Taller02UnitTesting {
 
      static void sismoMasFuerte(float [][]sismos) {
         float sisMayor=0;
-        int indi=0; int indj=0;
+        int dia=0; int hora=0;
         for (int i=0;i<sismos.length;i++){
             for (int j=0;j<sismos[i].length;j++){
                 if(sismos[i][j]>sisMayor){
                     sisMayor=sismos[i][j];
-                    indi=i;
-                    indj=j;
+                    dia=i;
+                    hora=j;
                 }
             }
         }
+        System.out.println("El sismo mas fuerte fue a las 0"+hora+" horas el dia "+(dia+1)+" con una intesidad de "+sismos[dia][hora]+" richter");
 
     }
 
