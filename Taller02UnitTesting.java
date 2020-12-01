@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Taller02UnitTesting {
     static float [][]sismos;
+    static Scanner teclado=new Scanner(System.in);
     public static void main (String[] args){
         Taller02UnitTesting obj=new Taller02UnitTesting();
         obj.sismos=crearArreglo();
@@ -15,8 +16,7 @@ public class Taller02UnitTesting {
     static float [][] crearArreglo(){
         Scanner entrada=new Scanner(System.in);
         System.out.println("Ingresar dias a analizar: ");
-
-        int dias=entrada.nextInt();
+        int dias=validar();
 
         float [][]sismos= new float[dias][24];
         for (int i=0;i<sismos.length;i++){
@@ -39,7 +39,7 @@ public class Taller02UnitTesting {
     }
     static void menu(){
         int opcion=0;
-        Scanner teclado=new Scanner(System.in);
+
         System.out.println("Seleccionar Opcion: ");
         System.out.println("1. Sismo mas intenso\n2. Dias con mas de 5.5 richter\n3. ¿Hay alerta de escalada sísmica?\n4. Salir");
         opcion=teclado.nextInt();
@@ -116,6 +116,16 @@ public class Taller02UnitTesting {
 
         return sisMayor;
     }
+    static int validar(){// metodo validador
 
+        int valor;
+        while(!teclado.hasNextInt()){
+            System.out.println("Introduzca un número como respuesta.");
+            teclado.next();
+        }
+
+        valor = teclado.nextInt();
+        return valor;
+    }
 
 }
