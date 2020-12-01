@@ -1,5 +1,5 @@
 # Taller2
-Miembros: Alfredo Avila
-          Fernando Fernandez
-Encargado de las Pruebas Unitarias: Fernando
-Control de excepciones: Alfredo
+Miembros: Alfredo Avila\n
+          Fernando Fernandez\n
+Encargado de las Pruebas Unitarias: Fernando\n
+Control de excepciones: Alfredo\n
