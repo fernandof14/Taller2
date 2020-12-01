@@ -2,14 +2,13 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Taller02UnitTesting {
-
+    float [][]sismos;
     public static void main (String[] args){
-        float [][]sismos;
-
-        sismos=crearArreglo();
-        imprimirSismos(sismos);
+        Taller02UnitTesting obj=new Taller02UnitTesting();
+        obj.sismos=crearArreglo();
+        imprimirSismos(obj.sismos);
         //sismoMasFuerte(sismos);
-        //menu();
+        obj.menu();
  }
 
 
@@ -37,7 +36,7 @@ public class Taller02UnitTesting {
         }
 
     }
-  /*  static void menu(){
+     void menu(){
         int opcion=0;
         Scanner teclado=new Scanner(System.in);
         System.out.println("Seleccionar Opcion: ");
@@ -48,23 +47,55 @@ public class Taller02UnitTesting {
                 sismoMasFuerte(sismos);
                 break;
             case 2:
-                masDe55();
+                masDe55(sismos);
                 break;
             case 3:
-                escaladaSismica();
+                escaladaSismica(sismos);
                 break;
             case 4:
                 System.exit(0);
                 break;
         }
 
-    }*/
-
-    private void escaladaSismica() {
     }
 
-    private void masDe55() {
+    private void escaladaSismica(float[][] sismos) {
+        int contadorSismico = 0;
+        int currentIntI = 0;
+        for (int i=0;sismos.length<i;i++){
+            for (int j=0;sismos[i].length<j;j++){
+                if(i == 0 && sismos[i][j] > 6.0){
+                    contadorSismico = 1;
+                }
+                if(currentIntI == i && sismos[i][j] > 6.0){
+                    contadorSismico++;
+                }else{
+                    contadorSismico = 0;
+                }
+                if(contadorSismico == 4){
+                    System.out.println("¡Alerta! 4 sismos altos han ocurrido consecutivamente.");
+                }
+
+                currentIntI = i;
+                int currentIntJ = j;
+            }
+        }
     }
+
+
+    private int masDe55(float[][] sismos) {
+        int AAA = 0;
+        for (int i=0;sismos.length<i;i++){
+            for (int j=0;sismos[i].length<j;j++){
+                if(sismos[i][j] >= 5.5){
+                    AAA++;
+                }
+            }
+        }
+        return AAA;
+    }
+
+
 
      float sismoMasFuerte(float [][]sismos) {
         float sisMayor=0;
