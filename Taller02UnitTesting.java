@@ -45,6 +45,18 @@ public class Taller02UnitTesting {
             }
         }
     }
+    
+    static int validar(){// metodo validador
+
+        int valor;
+        while(!teclado.hasNextInt()){
+            System.out.println("Introduzca un número como respuesta.");
+            teclado.next();
+        }
+
+        valor = teclado.nextInt();
+        return valor;
+    }
 
     public static void main (String[] args){
 
