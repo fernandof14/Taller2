@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Taller02UnitTesting {
-    float [][]sismos;
+    static float [][]sismos;
     public static void main (String[] args){
         Taller02UnitTesting obj=new Taller02UnitTesting();
         obj.sismos=crearArreglo();
@@ -27,6 +27,7 @@ public class Taller02UnitTesting {
             }
         }return sismos;
     }
+
     static void imprimirSismos(float [][]sismos){
         DecimalFormat df = new DecimalFormat("#.00");
         for (int i=0;i<sismos.length;i++){
@@ -36,7 +37,7 @@ public class Taller02UnitTesting {
         }
 
     }
-     void menu(){
+    static void menu(){
         int opcion=0;
         Scanner teclado=new Scanner(System.in);
         System.out.println("Seleccionar Opcion: ");
@@ -59,7 +60,7 @@ public class Taller02UnitTesting {
 
     }
 
-    private void escaladaSismica(float[][] sismos) {
+    static void escaladaSismica(float[][] sismos) {
         int contadorSismico = 0;
         int currentIntI = 0;
         for (int i=0;sismos.length<i;i++){
@@ -83,33 +84,36 @@ public class Taller02UnitTesting {
     }
 
 
-    private int masDe55(float[][] sismos) {
+    static int masDe55(float[][] sismos) {
         int AAA = 0;
         for (int i=0;sismos.length<i;i++){
             for (int j=0;sismos[i].length<j;j++){
-                if(sismos[i][j] >= 5.5){
+                if(sismos[i][j] >= 5.500000){
                     AAA++;
                 }
             }
         }
+        System.out.println("Hubieron "+AAA+" dias con mas de 5.5");
         return AAA;
     }
 
 
 
-     float sismoMasFuerte(float [][]sismos) {
+    static float sismoMasFuerte(float [][]sismos) {
         float sisMayor=0;
-        int dia=0; int hora=0;
+        int dia=0; int hora=0; int contador=0;
         for (int i=0;i<sismos.length;i++){
             for (int j=0;j<sismos[i].length;j++){
                 if(sismos[i][j]>sisMayor){
                     sisMayor=sismos[i][j];
                     dia=i;
                     hora=j;
+
                 }
             }
         }
         System.out.println("El sismo mas fuerte fue a las 0"+hora+" horas el dia "+(dia+1)+" con una intesidad de "+sismos[dia][hora]+" richter");
+
         return sisMayor;
     }
 
