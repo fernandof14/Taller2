@@ -7,6 +7,8 @@ public class Taller02UnitTesting {
         float [][]sismos= new float[3][8];
         crearArreglo(sismos);
         imprimirSismos(sismos);
+        sismoMasFuerte(sismos);
+        //menu();
  }
 
 
@@ -28,7 +30,7 @@ public class Taller02UnitTesting {
         }
 
     }
-    int menu(){
+  /*  static void menu(){
         int opcion=0;
         Scanner teclado=new Scanner(System.in);
         System.out.println("Seleccionar Opcion: ");
@@ -36,7 +38,7 @@ public class Taller02UnitTesting {
         opcion=teclado.nextInt();
         switch (opcion){
             case 1:
-                sismoMasFuerte();
+                sismoMasFuerte(sismos);
                 break;
             case 2:
                 masDe55();
@@ -44,9 +46,12 @@ public class Taller02UnitTesting {
             case 3:
                 escaladaSismica();
                 break;
+            case 4:
+                System.exit(0);
+                break;
         }
-        return opcion;
-    }
+
+    }*/
 
     private void escaladaSismica() {
     }
@@ -54,7 +59,19 @@ public class Taller02UnitTesting {
     private void masDe55() {
     }
 
-    private void sismoMasFuerte() {
+     static void sismoMasFuerte(float [][]sismos) {
+        float sisMayor=0;
+        int indi=0; int indj=0;
+        for (int i=0;i<sismos.length;i++){
+            for (int j=0;j<sismos[i].length;j++){
+                if(sismos[i][j]>sisMayor){
+                    sisMayor=sismos[i][j];
+                    indi=i;
+                    indj=j;
+                }
+            }
+        }
+
     }
 
 
